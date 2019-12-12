@@ -1,0 +1,27 @@
+<configuration>
+
+    <appender name="std_pattern" class="cc.leevi.common.logc.appender.ConsoleAppender">
+        <filter class="cc.leevi.common.logc.filter.LevelFilter">
+            <param name="level" value="debug"/>
+        </filter>
+        <layout class="cc.leevi.common.logc.layout.PatternLayout">
+            <param name="pattern" value="%d %t %p %c %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="std_plain" class="cc.leevi.common.logc.appender.ConsoleAppender">
+        <filter class="cc.leevi.common.logc.filter.LevelFilter">
+            <param name="level" value="debug"/>
+        </filter>
+        <layout class="cc.leevi.common.logc.layout.PlainLayout"/>
+    </appender>
+
+    <logger name="cc.leevi.common.logc">
+        <appender-ref ref="std_plain"/>
+        <appender-ref ref="std_pattern"/>
+    </logger>
+
+    <root level="trace">
+        <appender-ref ref="std_pattern"/>
+    </root>
+</configuration>
